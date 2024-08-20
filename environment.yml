@@ -1,0 +1,9 @@
+name: unetetmira
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11.5
+  - pip==23.2.1:
+    - torchvision==0.15.2
+    - wandb==0.15.9
+  - lightning==2.0.8
