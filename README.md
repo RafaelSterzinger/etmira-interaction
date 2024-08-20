@@ -7,7 +7,7 @@ Note that, data will be provided at a later stage [here](https://www.oeaw.ac.at/
 
 <img src="figures/methodology.png" alt="methodology" width="720"/>
 
-In our interactive segmentation approach, the initial mask $\mathbf{Y}$ is refined by user inputs, either adding ($\mathbf{\Delta}+$) or erasing ($\mathbf{\Delta}-$) parts to better align with the ground truth $\mathbf{Y^*}$. A separate model, conditioned on $\mathbf{Y}$ and $\mathbf{\Delta}$, then generates a refined mask $\mathbf{Y'}$, aiming to reduce the difference to $\mathbf{Y^*}$ more effectively than the user-refined mask $\mathbf{Y^\Delta}$. Segmentation is performed at a per-patch level, with the refinement process iteratively improving correctness based on human input.
+In our interactive segmentation approach, the initial mask $\mathbf{Y}$ is refined by user inputs, either adding ($\mathbf{\Delta^+}$) or erasing ($\mathbf{\Delta^-}$) parts to better align with the ground truth $`\mathbf{Y^*}`$. A separate model, conditioned on $\mathbf{Y}$ and $\mathbf{\Delta}$, then generates a refined mask $\mathbf{Y'}$, aiming to reduce the difference to $\mathbf{Y^*}$ more effectively than the user-refined mask $\mathbf{Y^\Delta}$. Segmentation is performed at a per-patch level, with the refinement process iteratively improving correctness based on human input.
 
 ## Results
 
@@ -43,7 +43,7 @@ DIR_ROOT
 ```
 
 
-## Model Weights
+## Model Weights (Optional)
 
 Click [here](https://owncloud.tuwien.ac.at/index.php/s/iYPVEWn3v6j0aZC) to download weights of already trained models and place them in ```weights```. 
 
