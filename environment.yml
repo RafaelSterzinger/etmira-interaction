@@ -1,4 +1,4 @@
-name: unetetmira
+name: etmira
 channels:
   - conda-forge
 dependencies:
