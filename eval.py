@@ -27,13 +27,13 @@ EVALUATE_MIRRORS = [
 
 
 @click.command()
-@click.option('--device', default=0, help='accelarator to train on')
+@click.option('--gpu', default=0, help='accelarator to train on')
 @click.option('--ckpt', default="weights/itermodel/epoch=55-pf_measure.ckpt", help='path to checkpoint', required=True)
 @click.option('--base_model', default='weights/basemodel/epoch=39-pf_measure.ckpt', help='path to base model checkpoint', required=True)
 @click.option('--is_interactive', default=True, help='whether prediction is interactive or not', required=True)
 @click.option('--mirror', default="ANSA-VI-1701_R", help='specifies the mirror on which the simulation should be run', required=True)
 @click.option('--seed', default=0, help='seed', required=True, type=int)
-def eval_model(device, ckpt, base_model, is_interactive, mirror, seed):
+def eval_model(gpu, ckpt, base_model, is_interactive, mirror, seed):
     pl.seed_everything(seed, workers=True)
     torch.set_num_threads(8)
     EVALUATE_MIRRORS = [mirror]
@@ -43,16 +43,16 @@ def eval_model(device, ckpt, base_model, is_interactive, mirror, seed):
     else:
         raise FileNotFoundError(f"Could not locate checkpoint at {ckpt}")
 
-    device = f'cuda:{device}'
+    gpu = f'cuda:{gpu}'
     patch_size = None
     try:
-        patch_size = torch.load(ckpt, map_location=device)['patch_size']
+        patch_size = torch.load(ckpt, map_location=gpu)['patch_size']
     except:
         patch_size = 512
 
     unet = UNet.load_from_checkpoint(
-        base_model, freeze=False, strict=False, map_location=device)
-    unet.to(device)
+        base_model, freeze=False, strict=False, map_location=gpu)
+    unet.to(gpu)
     unet.eval()
 
     weight_map = create_weight_map(0.5)
@@ -103,7 +103,7 @@ def eval_model(device, ckpt, base_model, is_interactive, mirror, seed):
                 mask, dim, interpolation=cv2.INTER_NEAREST).astype(bool)
 
             coords, inputs, outputs, gts = get_predicted_patches(
-                device, unet, dataset)
+                gpu, unet, dataset)
             init_output = outputs.copy()
             init_prediction = stich_image(
                 weight_map, patch_size, coords, inputs, outputs)
@@ -120,7 +120,7 @@ def eval_model(device, ckpt, base_model, is_interactive, mirror, seed):
             if is_interactive:
                 del unet
                 unet = UNet.load_from_checkpoint(
-                    ckpt, map_location='cpu', strict=False)
+                    ckpt, map_location='cpu', strict=False, base_model=base_model)
                 unet.to('cpu')
                 unet.eval()
                 priority_queue = []

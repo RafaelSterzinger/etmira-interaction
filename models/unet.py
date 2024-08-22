@@ -37,7 +37,7 @@ IMAGE_TO_LOG = 5
 
 
 class UNet(pl.LightningModule):
-    def __init__(self, arch: str, in_channels: int, out_channels: int, lr: float, is_interactive: False, enc_str: str = None, patch_size=512, base_model='weights/basemodel/epoch=35-pf_measure.ckpt'):
+    def __init__(self, arch: str, in_channels: int, out_channels: int, lr: float, is_interactive: False, enc_str: str = None, patch_size=512, base_model='weights/basemodel/epoch=39-pf_measure.ckpt'):
         """
         :param in_channels: number of channels in the input image
         :param out_channels: number of channels in the result feature map
