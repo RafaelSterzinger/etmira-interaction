@@ -46,10 +46,8 @@ class UNet(pl.LightningModule):
 
         self.lr = lr
 
-        aux_params = {'dropout': 0.0}
-
         self.model = smp.create_model(
-            arch, enc_str, None, in_channels + 2*is_interactive, out_channels, aux_params=aux_params)
+            arch, enc_str, None, in_channels + 2*is_interactive, out_channels)
 
         self.freeze = is_interactive
         if self.freeze:
