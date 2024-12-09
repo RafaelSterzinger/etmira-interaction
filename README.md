@@ -89,12 +89,16 @@ In case you have questions or find some errors, do not hesitate to contact me rs
 ## References
 Please consider citing our paper!
 
-    @misc{sterzinger2024fusingforcesdeephumanguidedrefinement,
-          title={Fusing Forces: Deep-Human-Guided Refinement of Segmentation Masks}, 
-          author={Rafael Sterzinger and Christian Stippel and Robert Sablatnig},
-          year={2024},
-          eprint={2408.03304},
-          archivePrefix={arXiv},
-          primaryClass={cs.CV},
-          url={https://arxiv.org/abs/2408.03304}, 
+    @inbook{Sterzinger2024,
+      title = {Fusing Forces: Deep-Human-Guided Refinement of Segmentation Masks},
+      ISBN = {9783031781988},
+      ISSN = {1611-3349},
+      url = {http://dx.doi.org/10.1007/978-3-031-78198-8_11},
+      DOI = {10.1007/978-3-031-78198-8_11},
+      booktitle = {Pattern Recognition},
+      publisher = {Springer Nature Switzerland},
+      author = {Sterzinger,  Rafael and Stippel,  Christian and Sablatnig,  Robert},
+      year = {2024},
+      month = dec,
+      pages = {154–169}
     }
