@@ -1,8 +1,6 @@
 ## Code to our [Paper](https://www.arxiv.org/abs/2408.03304):
 # Fusing Forces: Deep-Human-Guided Refinement of Segmentation Masks @&nbsp;ICPR 2024
 
-Note that, data will be provided at a later stage [here](https://www.oeaw.ac.at/acdh/tools/arche).
-
 ## Overview
 
 <img src="figures/methodology.png" alt="methodology" width="720"/>
@@ -16,6 +14,8 @@ In our interactive segmentation approach, the initial mask $\mathbf{Y}$ is refin
 Our human-in-the-loop approach significantly improves annotation quality over manual refinement, with relative pFM gains peaking between +12% and +26%. This method quickly surpasses manual labeling, leading to better annotations earlier. However, as the process continues, the improvement slightly decreases before convergence, indicating that the network may occasionally undo parts it had previously annotated correctly.
 
 ## Data
+
+Download the Ground Truth Masks [here](https://drive.google.com/file/d/13i-X2W2V-iALQD600R7jtlwK3HVh2zxL/view?usp=drive_link) and the Input Data here (note that input data will be provided at a later stage).
 
 Please, download the data and store it in the following structure:
 
