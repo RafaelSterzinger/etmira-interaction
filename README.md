@@ -15,7 +15,7 @@ Our human-in-the-loop approach significantly improves annotation quality over ma
 
 ## Data
 
-Download the Ground Truth Masks [here](https://drive.google.com/file/d/13i-X2W2V-iALQD600R7jtlwK3HVh2zxL/view?usp=drive_link) and the Input Data here (note that input data will be provided at a later stage).
+Download the Ground Truth Masks [here](https://drive.google.com/file/d/13i-X2W2V-iALQD600R7jtlwK3HVh2zxL/view?usp=drive_link) and the Input Data [here](https://id.acdh.oeaw.ac.at/EtMirA).
 
 Please, download the data and store it in the following structure:
 
